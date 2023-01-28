@@ -1,0 +1,33 @@
+public class werwer {
+
+    public List run() throws SQLException, ClassNotFoundException, ParseException {
+        String starttime1 = "8:30 AM";
+        String endTime = "7:20 PM";
+
+        List list = new ArrayList();
+        for (int i = 0; i <= list.size(); i++) {
+            list.add(starttime1);
+            Boolean timeres = list.contains(endTime);
+
+            SimpleDateFormat df = new SimpleDateFormat("HH:mm a");
+            Object getTimedata = list.get(i);
+            String starttime = getTimedata.toString();
+            System.out.println(starttime);
+            Date d = df.parse(starttime.toString());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(d);
+            cal.add(Calendar.MINUTE, 10);
+            String newTime = df.format(cal.getTime());
+
+            if (newTime.contentEquals(endTime) == true) {
+                System.out.println(newTime.contentEquals(endTime));
+                return list;
+            }
+
+            list.add(newTime);
+            System.out.println(list);
+        }
+        return list;
+
+    }
+}
